@@ -1,0 +1,45 @@
+<main>  
+    {{!-- code that displays the "view details" information --}}
+  <h2 class="page-title"><b>Video Details</b></h2>
+  <div class="container">
+    <div class="video">
+      <iframe
+        width="560"
+        height="350"
+        src="https://www.youtube.com/embed/{{VidDet.videoId}}"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay;
+clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="details">
+      <p style="font-size: 32px;"><b>{{VidDet.title}}</b></p>
+      <p>by {{VidDet.channel}}</p>
+      <p>Uploaded on {{VidDet.uploadDate}} </p>
+      <p>{{VidDet.likes}} likes</p>
+      <form action="/likes/{{VidDet.videoId}}" method="POST">
+        <button type="Submit"> Like </button>
+      </form>
+
+      {{!-- code that allows gives space to enter username and comment --}}
+      <div class="comment-details">
+        <p><form action="/comment/{{VidDet.videoId}}" method="POST">
+            <input type="text" name="name" placeholder="Enter your Name" />
+            <input type="text" name="texts" placeholder="Comments" />
+            
+            <button>Post</button>
+          </form>
+        </p>
+      </div>
+
+      {{!-- code that displays the list of comments assigned to that particular video --}}
+      {{#each commentList}}
+        <p><b>{{this.name}}: </b>{{this.texts}}</p>
+      {{/each}}
+
+    </div>
+  </div>
+
+</main>

@@ -1,0 +1,132 @@
+<body>
+    {{!-- code for search bar --}}
+  <div class="search">
+    <h1 class="site-name">Youtube Vanced</h1>
+    <form action="/lookup" method="POST">
+      <input type="text" placeholder="Search Videos" name="VideoName" />
+      <button>Search</button>
+    </form>
+  </div>
+
+    {{!-- code to display each video and its details --}}
+  {{#each Vid}}
+    <div class="container">
+      <div class="video">
+        <img
+          src="https://img.youtube.com/vi/{{this.videoId}}/maxresdefault.jpg"
+        />
+      </div>
+      <div class="details">
+        <p style="font-size: 32px;"><b>{{this.title}}</b></p>
+        <p>Channel: <b>{{this.channel}}</b></p>
+        <p>Uploaded on: {{this.uploadDate}}</p>
+        <p><a href="/VidDetail/{{this._id}}"><button>View Details</button></a></p>
+      </div>
+    </div>
+    <hr />
+  {{/each}}
+
+    {{!-- code for search bar results --}}
+  {{#each videoid}}
+    <div class="container">
+      <div class="video">
+        <img
+          src="https://img.youtube.com/vi/{{this.videoId}}/maxresdefault.jpg"
+        />
+      </div>
+      <div class="details">
+        <p style="font-size: 32px;"><b>{{this.title}}</b></p>
+        <p>{{this.channel}}</p>
+        <p>Uploaded on: {{this.uploadDate}}</p>
+        <p><a href="/VidDetail/{{this._id}}"><button>View Details</button></a></p>
+      </div>
+    </div>
+    <hr />
+  {{/each}}
+
+</body>
+
+{{!-- [{ 
+ "videoId": "BU79EyMjIrU",
+ "title": "Hold on",
+ "channel": "Martin Garrix",
+ "likes": 0,
+ "uploadDate": "27 Dec 2019" 
+},
+{
+ "videoId": "tt2k8PGm-TI",
+ "title": "Dusk till dawn",
+ "channel": "zayn",
+ "likes": 0,
+ "uploadDate": "7 Sept 2017" 
+},
+{
+ "videoId": "uPD0QOGTmMI",
+ "title": "Die for you",
+ "channel": "The Weeknd",
+ "likes": 0,
+ "uploadDate": "25 Nov 2021" 
+},
+{
+ "videoId": "fOSpFf6wTBk",
+ "title": "Roses",
+ "channel": "The Chainsmokers",
+ "likes": 0,
+ "uploadDate": "7 Jul 2015"
+},
+{
+ "videoId": "1XqIWr_WqM4",
+ "title": "Is there someone else?",
+ "channel": "The Weeknd",
+ "likes": 0,
+ "uploadDate": "7 Jan 2023"
+},
+{
+ "videoId": "XXYlFuWEuKI",
+ "title": "Save your tears",
+ "channel": "The Weeknd",
+ "likes": 0,
+ "uploadDate": "5 Jan 2021"
+},
+{
+ "videoId": "FYxUJFD9Ye4",
+ "title": "Ipad",
+ "channel": "The Chainsmokers",
+ "likes": 0,
+ "uploadDate": "11 Mar 2022"
+},
+{
+ "videoId": "UtF6Jej8yb4",
+ "title": "The nights",
+ "channel": "Avicii",
+ "likes": 0,
+ "uploadDate": "15 Dec 2014"
+},
+{
+ "videoId": "syFZfO_wfMQ",
+ "title": "Night Changes",
+ "channel": "One Direction",
+ "likes": 0,
+ "uploadDate": "21 Nov 2014"
+},
+{
+ "videoId": "RgKAFK5djSk",
+ "title": "See you again",
+ "channel": "Wiz Khalifa",
+ "likes": 0,
+ "uploadDate": "6 Apr 2015"
+},
+{
+ "videoId": "ApXoWvfEYVU",
+ "title": "Sun flower",
+ "channel": "Post Malone",
+ "likes": 0,
+ "uploadDate": "18 Oct 2018"
+},
+{
+ "videoId": "fS0SyW980YI",
+ "title": "Just you and i",
+ "channel": "Tom Walker",
+ "likes": 0,
+ "uploadDate": "11 Jan 2019"
+}] --}}

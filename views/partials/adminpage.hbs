@@ -1,0 +1,17 @@
+<main>
+
+  <h3 class="page-title"><b>Video Details</b></h3>
+{{!-- display code of each video for admin page --}}
+  {{#each videos}}
+    <div class="admin-details">
+      <h3>{{title}}</h3>
+      <p>Likes: {{likes}}</p>
+      <p>Comments: {{texts.length}}</p>
+      <form method="POST" action="/admin/delete/{{_id}}">
+        <button>Delete</button>
+      </form>
+      <hr />
+    </div>
+  {{/each}}
+
+</main>
